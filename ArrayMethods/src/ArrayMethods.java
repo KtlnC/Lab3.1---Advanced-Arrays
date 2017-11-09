@@ -7,27 +7,52 @@ public class ArrayMethods {
 
 	public static void main (String[] args)
 	{
-		
+		int[] array = {0,0,0,2,3,3};
+		System.out.print(originals(array));
 	}
 	
 	public static int[] removeDuplicates(int[] list)
 	{
-		int[] arr = list;
-		for(int i = 0; i < list.length; i++)
-		{
-			for(int j = i + 1; j < list.length; j++)
-			{
-				if(list[i] == list[j])
-				{
-					
-				}
-			}
-		}
+		int count = countDuplicates(list);
+		
+		int[] arr = new int[list.length-count];
+		
 		return arr;
 	}
-	
+	public static int countDuplicates(int[] nums)
+	{
+		int counter = 0;
+		for(int i = 0; i<nums.length-1;i++)
+		{
+			for(int j = i+1; j<nums.length;j++)
+			{
+				if(nums[i]==nums[j])
+				{
+					counter++;
+				}
+			} 
+		}
+		return counter;
+	}
+	public static int originals(int[]nums)
+	{
+		int counter = 0;
+		int num = 0;
+		for(int i = 0; i<nums.length-1;i++)
+		{
+			for(int j = i+1; j<nums.length;j++)
+			{
+				if(nums[i]==nums[j])
+				{
+					counter++;
+				}
+			} 
+		}
+		return counter;
+	}
 	public static boolean containsDuplicates(int[] nums)
 	{
+		
 		for(int i = 0; i<nums.length-1;i++)
 		{
 			for(int j = i+1; j<nums.length;j++)
@@ -40,4 +65,5 @@ public class ArrayMethods {
 		}
 		return false;
 	}
+	
 }
