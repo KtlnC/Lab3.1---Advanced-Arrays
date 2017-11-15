@@ -17,7 +17,7 @@ public class ArrayMethods {
 		int[] arr1 = {1,2,3};
 		int[] arr2 = {3,9,4};
 		Utilities.printdoublearray(productArray(arr1,arr2));
-		
+		Utilities.printdoublearray(pascalTriangle(3));
 	}
 	
 	public static int[] removeDuplicates(int[] list)
@@ -57,9 +57,17 @@ public class ArrayMethods {
 
 	public static int[][] pascalTriangle(int n)
 	{
-		
+		int[][] triangle = new int[n][n];
+		for(int i = 0;i<triangle.length;i++)
+		{
+			
+				triangle[i][0] = 1;
+				triangle[i][triangle.length-1] = 1;
+			
+		}
+		return triangle;
+
 	}
-	
 	public static void printPascalTriangle(int[][] pTriangle)
 	{
 		
