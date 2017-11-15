@@ -57,13 +57,24 @@ public class ArrayMethods {
 
 	public static int[][] pascalTriangle(int n)
 	{
-		int[][] triangle = new int[n][n];
-		for(int i = 0;i<triangle.length;i++)
+		//int[][] triangle = new int[n][];
+		int counter = 1;
+		//i= column
+		//counter = row
+		int[][] triangle = new int[n][];
+		for(int i = 0;i<n;i++)
 		{
-			
-				triangle[i][0] = 1;
-				triangle[i][triangle.length-1] = 1;
-			
+			triangle[i] = new int [i];
+			triangle[i][0] = 1;
+			System.out.println(i);
+			triangle[i][triangle[i].length-1] = 1;
+			for(int j = 1;j<triangle[i].length-1;j++)
+			{
+				
+				
+				triangle[i][j] = 0;
+			}
+			//counter++;
 		}
 		return triangle;
 
