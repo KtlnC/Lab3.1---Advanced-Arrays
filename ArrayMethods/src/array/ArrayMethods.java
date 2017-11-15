@@ -14,10 +14,10 @@ public class ArrayMethods {
 		//System.out.println(Utilities.originals(array));
 		//Utilities.printArray(removeDuplicates(array));
 		
-		int[] arr1 = {1,2,3};
-		int[] arr2 = {3,9,4};
-		Utilities.printdoublearray(productArray(arr1,arr2));
-		Utilities.printdoublearray(pascalTriangle(3));
+		//int[] arr1 = {1,2,3};
+		//int[] arr2 = {3,9,4};
+		//Utilities.printdoublearray(productArray(arr1,arr2));
+		printPascalTriangle(pascalTriangle(9));
 	}
 	
 	public static int[] removeDuplicates(int[] list)
@@ -57,32 +57,57 @@ public class ArrayMethods {
 
 	public static int[][] pascalTriangle(int n)
 	{
-		//int[][] triangle = new int[n][];
-		int counter = 1;
-		//i= column
-		//counter = row
 		int[][] triangle = new int[n][];
 		for(int i = 0;i<n;i++)
 		{
-			triangle[i] = new int [i];
+			triangle[i] = new int [i+1];
 			triangle[i][0] = 1;
-			System.out.println(i);
 			triangle[i][triangle[i].length-1] = 1;
-			for(int j = 1;j<triangle[i].length-1;j++)
+			
+			if(i>1)
 			{
-				
-				
-				triangle[i][j] = 0;
+				for(int j = 1;j<triangle[i].length-1;j++)
+					{
+						
+						triangle[i][j] = triangle[i-1][j] + triangle[i-1][j-1];
+					}
 			}
-			//counter++;
+			
+			/*if(i>1)
+			{
+				for(int k = 1;k<triangle.length;k++)
+				{
+					for(int j = 1;j<triangle[k].length-1;j++)
+					{
+						
+						triangle[k][j] = triangle[k-1][j] + triangle[k-1][j-1];
+					}
+				}
+			}*/
+			
 		}
+		
 		return triangle;
 
 	}
 	public static void printPascalTriangle(int[][] pTriangle)
-	{
-		
+	{ 
+		String spaces = "";
+		for(int i =pTriangle.length-1;i>-1;i--)
+		{
+			System.out.print(spaces);
+			for(int j = 0;j<pTriangle[i].length;j++)
+			{
+				
+				System.out.print(pTriangle[i][j] + " ");
+				
+				
+			}
+			System.out.print(spaces);
+			spaces+=" ";
+			System.out.println();
+		}
 	}
 	
-	
+	//
 }
